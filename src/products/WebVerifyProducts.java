@@ -106,17 +106,17 @@ public class WebVerifyProducts extends Utils {
 		}
 		
 		// verify if "actual names" list contains only digits
-				boolean printAct = false;
-				for (int i = 0; i < actNames.size(); i++) {
-					char chars[] = actNames.get(i).toCharArray();
-					for (int j = 0; j < chars.length; j++) {
-						int ascii = (int) chars[j];
-						if (ascii < 48 || ascii > 57) {
-							printAct = true;
-						}
-						//System.out.println(chars[j] + " " + ascii);
-					}
+		boolean printAct = false;
+		for (int i = 0; i < actNames.size(); i++) {
+			char chars[] = actNames.get(i).toCharArray();
+			for (int j = 0; j < chars.length; j++) {
+				int ascii = (int) chars[j];
+				if (ascii < 48 || ascii > 57) {
+					printAct = true;
 				}
+				//System.out.println(chars[j] + " " + ascii);
+			}
+		}
 		
 		// print the missed products or products with incorrect names at the menu section
 		if (printExp) {
