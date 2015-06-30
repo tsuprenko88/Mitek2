@@ -38,6 +38,7 @@ public class WebVerifyProducts extends Utils {
 		
 		// navigate to Mitek home page
 		driver.get("http://www.miteksystems.com/");
+		//driver.manage().window().maximize();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
 		
 		// click on "SITEMAP"
@@ -91,8 +92,34 @@ public class WebVerifyProducts extends Utils {
 			}
 		}
 		
+		// verify if "expected names" list contains only digits
+		boolean printExp = false;
+		for (int i = 0; i < expNames.size(); i++) {
+			char chars[] = expNames.get(i).toCharArray();
+			for (int j = 0; j < chars.length; j++) {
+				int ascii = (int) chars[j];
+				if (ascii < 48 || ascii > 57) {
+					printExp = true;
+				}
+				//System.out.println(chars[j] + " " + ascii);
+			}
+		}
+		
+		// verify if "actual names" list contains only digits
+				boolean printAct = false;
+				for (int i = 0; i < actNames.size(); i++) {
+					char chars[] = actNames.get(i).toCharArray();
+					for (int j = 0; j < chars.length; j++) {
+						int ascii = (int) chars[j];
+						if (ascii < 48 || ascii > 57) {
+							printAct = true;
+						}
+						//System.out.println(chars[j] + " " + ascii);
+					}
+				}
+		
 		// print the missed products or products with incorrect names at the menu section
-		if (expNames.size() != 0) {
+		if (printExp) {
 			Reporter.log("Menu - Missed products or products with incorrect names:", true);
 			for (int i = 0; i < expNames.size(); i++) {
 				Reporter.log(expNames.get(i), true);
@@ -102,7 +129,7 @@ public class WebVerifyProducts extends Utils {
 		}
 		
 		// print the missed products or products with incorrect names on the "Products" page
-		if (actNames.size() != 0) {
+		if (printAct) {
 			Reporter.log("\"Products\" page - Missed products or products with incorrect names:", true);
 			for (int i = 0; i < actNames.size(); i++) {
 				Reporter.log(actNames.get(i), true);
@@ -124,3 +151,4 @@ public class WebVerifyProducts extends Utils {
 	}
 
 }
+
