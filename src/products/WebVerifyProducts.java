@@ -23,7 +23,6 @@ public class WebVerifyProducts extends Utils {
 		WebDriverWait wait = new WebDriverWait(driver, 25);
 		xlPath = "excel-input//Products.xlsx";
 		xlSheetName = "VerifyName";
-		xlWritePath = "excel-output//"+xlSheetName+"Web.xls";
 		fail = false;
 		
 		// read the excel file
