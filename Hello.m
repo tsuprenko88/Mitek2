@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Hello: NSObject
-@property (nonatomic, storng) NSString* s;
+@property (nonatomic, strong) NSString* s;
 @end
 
 @implementation Hello
