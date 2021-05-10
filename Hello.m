@@ -7,7 +7,7 @@
 
 @implementation Hello
     
-- (void)setS:(NSString *)s {
+- (void)setS:(NSString)s {
     _s = @"";
 }
 
