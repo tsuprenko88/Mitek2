@@ -2,12 +2,17 @@
 #import <Foundation/Foundation.h>
 
 @interface Hello: NSObject
-@property NSString* s;
+@property (nonatomic) NSString* s;
 @end
 
 @implementation Hello
-NSString* m() {
-    Hello* hello = nil;
-    return hello->_s;
+    
+- (void)setS:(NSString)s {
+    _s = @"";
 }
+
+- (NSString *)getS {
+    return @"get s";
+}
+    
 @end
