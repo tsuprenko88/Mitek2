@@ -2,12 +2,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Hello: NSObject
-@property (nonatomic) NSString* s;
+@property (nonatomic, storng) NSString* s;
 @end
 
 @implementation Hello
     
-- (void)setS:(NSString)s {
+- (void)setS:(NSString *)s {
     _s = @"";
 }
 
