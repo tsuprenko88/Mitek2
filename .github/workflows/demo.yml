@@ -16,6 +16,6 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Install Infer brew package
-        run: brew install infer
+        run: VERSION=1.1.0; curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" | sudo tar -C /opt -xJ && sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
       - name: Scan Hello.m
         run: infer run -- clang -c Hello.m
