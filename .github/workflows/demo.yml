@@ -2,7 +2,7 @@ name: GitHub Actions Demo
 on: [push]
 jobs:
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -16,6 +16,7 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Install Infer brew package
-        run: VERSION=1.1.0; curl -sSL "https://github.com/facebook/infer/releases/download/v$VERSION/infer-linux64-v$VERSION.tar.xz" | sudo tar -C /opt -xJ && sudo ln -s "/opt/infer-linux64-v$VERSION/bin/infer" /usr/local/bin/infer
+        run: brew install infer
       - name: Scan Hello.m
         run: infer run -- clang -c Hello.m
+
